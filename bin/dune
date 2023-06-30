@@ -8,3 +8,8 @@
  (name day1)
  (modules day1)
  (libraries core))
+
+(executable
+ (name day2)
+ (modules day2)
+ (libraries core))
