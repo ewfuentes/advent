@@ -35,10 +35,9 @@ let () =
     Option.value_exn (List.max_elt elf_calorie_sum ~compare:( - ))
   in
   print_endline (string_of_int max_calorie_elf);
-  let sorted_elves = List.sort elf_calorie_sum ~compare:( fun a b -> b - a ) in
+  let sorted_elves = List.sort elf_calorie_sum ~compare:(fun a b -> b - a) in
   let elf_sums =
-    List.foldi sorted_elves ~init:0
-      ~f:(fun idx accum item ->
+    List.foldi sorted_elves ~init:0 ~f:(fun idx accum item ->
         accum + if idx > 2 then 0 else item)
   in
   print_endline (string_of_int elf_sums)
