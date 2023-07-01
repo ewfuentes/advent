@@ -23,3 +23,13 @@
  (name day4)
  (modules day4)
  (libraries core))
+
+(executable
+ (name day5)
+ (modules day5)
+ (libraries core re2))
+
+(executable
+ (name day6)
+ (modules day6)
+ (libraries core re2))
