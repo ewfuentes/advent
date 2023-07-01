@@ -31,7 +31,7 @@ let find_common_item (a, b, c) =
     |> List.reduce_exn ~f:Option.first_some
   in
   let b_idx, _ = Option.value_exn idxs in
-  (String.get b b_idx)
+  String.get b b_idx
 
 let () =
   let lines = In_channel.read_lines "input/day3.txt" in
@@ -40,7 +40,5 @@ let () =
 
   chunk_lines lines
   |> List.map ~f:find_common_item
-  |> List.map ~f:score_char
-  |> List.reduce_exn ~f:( + )
-  |> Int.to_string
+  |> List.map ~f:score_char |> List.reduce_exn ~f:( + ) |> Int.to_string
   |> print_endline
