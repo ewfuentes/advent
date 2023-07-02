@@ -1,3 +1,8 @@
+(env
+ (dev
+  (flags
+   (:standard -warn-error -A))))
+
 (executable
  (public_name advent)
  (name main)
@@ -32,4 +37,10 @@
 (executable
  (name day6)
  (modules day6)
- (libraries core re2))
+ (libraries core))
+
+(executable
+ (name day7)
+ (modules day7)
+ (libraries core))
+

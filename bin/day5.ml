@@ -2,7 +2,6 @@ open Core
 
 type move = { src : int; dst : int; count : int }
 
-
 (*
 let move_to_string move =
   "<Move src: " ^ Int.to_string move.src ^ " dst: " ^ Int.to_string move.dst
@@ -84,7 +83,7 @@ let apply_move_maintain stacks move =
 
 let () =
   let lines = In_channel.read_lines "input/day5.txt" in
-  (let initial_state, moves = parse_puzzle lines in
+  let initial_state, moves = parse_puzzle lines in
   let final_state = List.fold moves ~init:initial_state ~f:apply_move in
   List.iter final_state ~f:(fun x ->
       Out_channel.output_char stdout (Stack.top_exn x));
@@ -96,5 +95,4 @@ let () =
   in
   List.iter final_state ~f:(fun x ->
       Out_channel.output_char stdout (Stack.top_exn x));
-  Out_channel.newline stdout;
-  )
+  Out_channel.newline stdout
