@@ -44,3 +44,7 @@
  (modules day7)
  (libraries core))
 
+(executable
+ (name day8)
+ (modules day8)
+ (libraries core))
