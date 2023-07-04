@@ -48,3 +48,10 @@
  (name day8)
  (modules day8)
  (libraries core))
+
+(executable
+ (name day9)
+ (modules day9)
+ (preprocess
+  (pps ppx_compare ppx_sexp_conv))
+ (libraries core))
