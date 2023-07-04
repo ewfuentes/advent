@@ -55,3 +55,8 @@
  (preprocess
   (pps ppx_compare ppx_sexp_conv))
  (libraries core))
+
+(executable
+ (name day10)
+ (modules day10)
+ (libraries core))
