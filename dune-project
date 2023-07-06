@@ -19,7 +19,7 @@
  (name advent)
  (synopsis "A short synopsis")
  (description "A longer description")
- (depends ocaml dune re2 core ppx_deriving)
+ (depends ocaml dune re2 core ppx_deriving zarith)
  (tags
   (topics "to describe" your project)))
 

@@ -69,11 +69,11 @@ let rec advance state (dir, count) tail_set =
       | _, [] -> failwith "empty new body"
       | old_next :: rest, new_prev :: new_rest ->
           let new_next =
-            if Loc.dist new_prev old_next < 2 then old_next else
-              let (x_p, y_p), (x_n, y_n) = new_prev, old_next in
+            if Loc.dist new_prev old_next < 2 then old_next
+            else
+              let (x_p, y_p), (x_n, y_n) = (new_prev, old_next) in
               let clamp = Int.clamp_exn ~min:(-1) ~max:1 in
-              let dloc = (clamp (x_p - x_n)), (clamp (y_p - y_n))
-              in
+              let dloc = (clamp (x_p - x_n), clamp (y_p - y_n)) in
               Loc.add old_next dloc
           in
           advance_body rest (new_next :: new_prev :: new_rest)
