@@ -73,3 +73,7 @@
   (pps ppx_compare ppx_sexp_conv))
  (libraries core re2))
 
+(executable
+ (name day13)
+ (modules day13)
+ (libraries core re2))
