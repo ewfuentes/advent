@@ -65,3 +65,11 @@
  (name day11)
  (modules day11)
  (libraries core re2))
+
+(executable
+ (name day12)
+ (modules day12)
+ (preprocess
+  (pps ppx_compare ppx_sexp_conv))
+ (libraries core re2))
+
