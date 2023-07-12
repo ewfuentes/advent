@@ -54,18 +54,14 @@ let () =
 
   let divider_packet_1 = sexp_to_packet (Sexp.of_string "((2))") in
   let divider_packet_2 = sexp_to_packet (Sexp.of_string "((6))") in
-  let div_packets = [divider_packet_1; divider_packet_2] in
+  let div_packets = [ divider_packet_1; divider_packet_2 ] in
   In_channel.read_lines "input/day13.txt"
   |> List.filter_map ~f:(fun line -> parse_packet line)
-  |> List.append div_packets
-  |> List.sort ~compare: compare
-  |> List.filter_mapi ~f:(fun idx p -> 
-                  if (Sexp.equal (packet_to_sexp p) (packet_to_sexp divider_packet_1)) || 
-                  (Sexp.equal (packet_to_sexp p) (packet_to_sexp divider_packet_2)) then
-                          Some (idx + 1)
-                  else None)
-  |> List.reduce_exn ~f:( * )
-  |> Int.to_string
-  |> print_endline
-                  
-
+  |> List.append div_packets |> List.sort ~compare
+  |> List.filter_mapi ~f:(fun idx p ->
+         if
+           Sexp.equal (packet_to_sexp p) (packet_to_sexp divider_packet_1)
+           || Sexp.equal (packet_to_sexp p) (packet_to_sexp divider_packet_2)
+         then Some (idx + 1)
+         else None)
+  |> List.reduce_exn ~f:( * ) |> Int.to_string |> print_endline
